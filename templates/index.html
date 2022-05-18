@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .pp{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: cursive;
+        position: absolute;
+        margin-left: 35%;
+        margin-top: 5%;
+        border: 3px solid #73AD21;
+        border-left: 3px;
+        border-bottom: -2px;
+        border-right: 500px;
+        border-spacing: 100px;
+        overflow: hidden;
+        background-color: transparent;
+        
+    }
+    #submit{
+        position: relative;
+        align-self: flex-end;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: auto;
+    }
+    body{
+        background-image: url('02C.jpg');
+        
+        opacity: 1;
+        height: 500px;
+    }
+    .predict{
+        position: absolute;
+        margin-left: 12%;
+        margin-top: 30%;
+        font-size: x-large;
+    }
+</style>
+<body>
+    <div class="pp">
+        <br>
+        <form action="#" method="POST">
+            Flat size: <input type="number" name="area" id="area" size="10px">sq. ft.<br><br>
+            Location: <select name="locations" id="locations">
+                            {% for loc in data.values() %}
+                                {% for i in loc %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            {% endfor %}
+                        </select>
+            <br><br>
+            No. of beds:
+                <input type="radio" name="bed" id="1" value=1 checked>1
+                <input type="radio" name="bed" id="2" value=2>2
+                <input type="radio" name="bed" id="3" value=3>3
+                <input type="radio" name="bed" id="4" value=4>4
+                <input type="radio" name="bed" id="5" value=5>5
+            <br><br>
+            No. of baths:
+                <input type="radio" name="bath" id="1" value=1 checked>1
+                <input type="radio" name="bath" id="2" value=2>2
+                <input type="radio" name="bath" id="3" value=3>3
+                <input type="radio" name="bath" id="4" value=4>4
+                <input type="radio" name="bath" id="5" value=5>5
+            <br><br>
+            <button id="submit" type="submit">Predict Price</button>
+        </form>
+            <br>
+    </div>
+    <div class="predict">
+        {{price}}
+    </div>
+</body>
+</html>
+
+
